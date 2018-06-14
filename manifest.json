@@ -1,0 +1,23 @@
+{
+  "manifest_version": 2,
+  "name": "Youtube SubTitles to Notification",
+  "version": "1.0",
+  "background": {
+    "scripts": ["main.js"],
+    "persistent": true
+  },
+  "permissions": ["https://*/*",
+    "http://*/*",
+    "tabs","management","debugger","activeTab","storage"],
+  "minimum_chrome_version": "23",
+  "content_scripts": [
+    {
+      "matches":["https://www.youtube.com/*"],
+      "all_frames":true,
+      "js": ["js/jquery.js", "js/youtube.js" ]
+    }
+  ],
+  "web_accessible_resources": [
+    "js/*"
+  ]
+}
