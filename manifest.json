@@ -9,7 +9,7 @@
   "permissions": ["https://*/*",
     "http://*/*",
     "tabs","management","debugger","activeTab","storage"],
-  "minimum_chrome_version": "23",
+  "minimum_chrome_version": "66",
   "content_scripts": [
     {
       "matches":["https://www.youtube.com/*"],
