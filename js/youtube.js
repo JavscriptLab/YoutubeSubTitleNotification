@@ -54,6 +54,7 @@ if(sessionStorage.getItem("customnotificationactive")=="true"){
           '.caption-window',
           function(e)
           {
+            /////&&$(".caption-window").hasClass("ytp-rollup-mode")
             if(notificationactive&&!deactivatenotifications){
              
                   var notificationhtml=$(".caption-window").html();
@@ -74,7 +75,7 @@ if(sessionStorage.getItem("customnotificationactive")=="true"){
                     if(textpieces.length>0){
                     lastnotificationtext=notificationhtml;
                   var found=false;
-                  var notificationbody=mylocalnotificationtext;
+                  var notificationbody=textpieces.join(" ");
                   if(mylocallastnotificationtext)
                   {
                     var lastpieces=
@@ -89,51 +90,56 @@ if(sessionStorage.getItem("customnotificationactive")=="true"){
                           return e!=""&&e!=" "&e!="  ";
                         });
                     ////var lastthree=lastpieces.splice(-3);
-                    var foundcount=0;
+// //                     var foundcount=0;
                     
-                    var currentpieceslength=textpieces.length;
-                    var lastpieceslength=lastpieces.length;
-                    var lastword=lastpieces[lastpieceslength-1];
-                    console.log("'"+lastword+"'");
-                    var lastwordindexesinnewtext=[];
-                    var removedprevioswordstext="";
-                    $.each(textpieces,function(i,v){
-if(v==lastword){
-lastwordindexesinnewtext.push(i);
-}
-});
-if(lastwordindexesinnewtext.length>0){
-                    for(var i=0; i<lastwordindexesinnewtext.length; i++)
-                    {
-                      if(!found){
-var foundlocalscenario=true;
-                    for(var j=lastwordindexesinnewtext[i];j>=0;j--){
-                      if(foundlocalscenario==true){
-if(textpieces[j]!=lastpieces[lastpieceslength-1-(lastwordindexesinnewtext[i]-j)]){
-  foundlocalscenario=false;
-}
-}
+// //                     var currentpieceslength=textpieces.length;
+// //                     var lastpieceslength=lastpieces.length;
+// //                     var lastword=lastpieces[lastpieceslength-1];
+// //                     console.log("'"+lastword+"'");
+// //                     var lastwordindexesinnewtext=[];
+// //                     var removedprevioswordstext="";
+// //                     $.each(textpieces,function(i,v){
+// // if(v==lastword){
+// // lastwordindexesinnewtext.push(i);
+// // }
+// // });
+// // if(lastwordindexesinnewtext.length>0){
+// //                     for(var i=0; i<lastwordindexesinnewtext.length; i++)
+// //                     {
+// //                       if(!found){
+// // var foundlocalscenario=true;
+// //                     for(var j=lastwordindexesinnewtext[i];j>=0;j--){
+// //                       if(foundlocalscenario==true){
+// // if(textpieces[j]!=lastpieces[lastpieceslength-1-(lastwordindexesinnewtext[i]-j)]){
+// //   foundlocalscenario=false;
+// // }
+// // }
 
-                    }
-                    if(foundlocalscenario){
-                      found=true;
-                      textpieces.splice(0,lastwordindexesinnewtext[i]+1);
-                      notificationbody=lastpieces.join(" ")+" "+textpieces.join(" ");
-                      lastnotificationtext=notificationbody;
-                      i=lastwordindexesinnewtext.length;
-                    }
-                  }
-                }
-              }else{
+// //                     }
+// //                     if(foundlocalscenario){
+// //                       found=true;
+// //                       textpieces.splice(0,lastwordindexesinnewtext[i]+1);
+// //                       notificationbody=lastpieces.join(" ")+" "+textpieces.join(" ");
+// //                       lastnotificationtext=notificationbody;
+// //                       i=lastwordindexesinnewtext.length;
+// //                     }
+// //                   }
+// //                 }
+// //               }else{
                 
-              }
+// //               }
 
 
-if(!found&&lastpieces.length>0){
-                ////  notificationbody=lastpieces.join(" ")+" "+textpieces.join(" ");
-                  ////lastnotificationtext=notificationbody;
-}
+// // if(!found&&lastpieces.length>0){
+// //                 ////  notificationbody=lastpieces.join(" ")+" "+textpieces.join(" ");
+// //                   ////lastnotificationtext=notificationbody;
+// // }
 ////console.log(notificationbody);
+///notificationbody=lastpieces.join(" ")+" "+textpieces.join(" ");
+                  }
+                  
+   ////               notificationbody=notificationbody.replace(/(\W|^)(.+)\s\2/igm,"");
+
 notificationbody=$("<span>"+notificationbody+"</span>").text();
 var lastnotificationpieces= splitbylines(35,notificationbody.replace(/\n/ig,""));
   lastnotificationpieces=lastnotificationpieces.splice(lastnotificationpieces.length-5,100000);
@@ -157,7 +163,7 @@ lastnotificationtext="<span>"+notificationbody+"</span>";
                                   },15000);
                                             };
 
-              }
+              
             }
               
             
