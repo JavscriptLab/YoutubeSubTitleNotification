@@ -186,7 +186,8 @@ lastnotificationtext="<span>"+notificationbody+"</span>";
     },1000);
   setInterval(function(){
       $(".close-padding.condensed.contains-svg,.iv-promo-close").click();
-          $(".ytp-ad-skip-button").click()
+      $(".ytp-ad-skip-button,.videoAdUiSkipButton").click()
+          $(".ytp-ad-overlay-close-button").click()
     $(".annotation-close-button").click();
   if($(".ytp-right-controls .customnotificationactive").length==0){
     $(".ytp-right-controls").prepend('<button title="View Sub Titles as Notification" class="ytp-subtitles-button ytp-button customnotificationactive" style="" aria-pressed="'+notificationactive+'"><span style="  height: 100%;  width: 100%;  display: block; float: left;  margin: -1px 1px 0px 0px;  text-align: center;">NT</span></button>');
