@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
-  "name": "Youtube SubTitles to Notification",
-  "version": "1.0",
+  "name": "SubTitles to Notification for youtube™",
+  "version": "1.4",
   "background": {
     "scripts": ["main.js"],
     "persistent": true
